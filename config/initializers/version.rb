@@ -1,5 +1,6 @@
-module TestGuruVersion
-  class Application
-    VERSION = '1.0.0'
+module TestGuru
+  VERSION = '1.0.0'
+  def self.version
+    VERSION
   end
 end
