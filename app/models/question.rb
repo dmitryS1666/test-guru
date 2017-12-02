@@ -4,5 +4,4 @@ class Question < ApplicationRecord
 
   validates :body, presence: true
   validates :test_id, numericality: { only_integer: true }
-  validates :answers, length: { maximum: 4 }
 end
