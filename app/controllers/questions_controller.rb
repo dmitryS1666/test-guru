@@ -1,10 +1,10 @@
 class QuestionsController < ApplicationController
   before_action :find_question_by_test, only: :index
-  before_action :find_question_by_id, only: :show
+  before_action :find_question, only: :show
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    render plain: "All questions: #{@questions.each { |question| question}}"
+    render plain: "All questions: #{@questions}"
   end
 
   def show
@@ -26,10 +26,10 @@ class QuestionsController < ApplicationController
   end
 
   def find_question_by_test
-    @questions = Question.by_test_id(params[:test_id])
+    @questions = Question.where(test_id: params[:test_id]).each { |question| question }
   end
 
-  def find_question_by_id
+  def find_question
     @question = Question.find(params[:id])
   end
 
