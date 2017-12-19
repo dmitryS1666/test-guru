@@ -7,8 +7,11 @@ class QuestionsController < ApplicationController
     render plain: "All questions: #{@questions}"
   end
 
-  def show
-    render plain: "Question number #{params[:id]}: #{@question[0].body}"
+  def show; end
+
+  def destroy
+    @question.destroy
+    redirect_to root
   end
 
   def new
@@ -30,7 +33,7 @@ class QuestionsController < ApplicationController
   end
 
   def find_question
-    @question = Question.find(params[:id])
+    @question = Question.find(params[:id]).where(test_id: params[:test_id])
   end
 
   def rescue_with_question_not_found
