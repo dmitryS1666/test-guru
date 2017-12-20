@@ -1,10 +1,10 @@
 class QuestionsController < ApplicationController
-  before_action :find_question_by_test, only: :index
-  before_action :find_question, only: :show
+  before_action :find_test, only: [:index, :create, :new]
+  before_action :find_question, except: [:index, :create, :new]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    render plain: "All questions: #{@questions.to_a}"
+    @questions.to_a
   end
 
   def show; end
@@ -15,12 +15,16 @@ class QuestionsController < ApplicationController
   end
 
   def new
-
+    @question = Question.new
   end
 
   def create
-    question = Question.create(question_params)
-    render plain: question.inspect
+    @question = Question.new(question_params)
+    if @question.save
+      redirect_to root
+    else
+      render :new
+    end
   end
 
   private
@@ -28,12 +32,12 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:body, :test_id)
   end
 
-  def find_question_by_test
+  def find_test
     @questions = Question.where(test_id: params[:test_id])
   end
 
   def find_question
-    @question = Question.find(params[:id]).where(test_id: params[:test_id])
+    @question = Question.find(params[:id])
   end
 
   def rescue_with_question_not_found
