@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    render plain: "All questions: #{@questions}"
+    render plain: "All questions: #{@questions.to_a}"
   end
 
   def show; end
@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
   end
 
   def find_question_by_test
-    @questions = Question.where(test_id: params[:test_id]).each { |question| question }
+    @questions = Question.where(test_id: params[:test_id])
   end
 
   def find_question
