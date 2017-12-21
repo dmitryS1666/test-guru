@@ -3,14 +3,16 @@ class QuestionsController < ApplicationController
   before_action :find_question, except: [:index, :create, :new]
 
   def index
-    @questions.to_a
+    redirect_to test_path(@test)
   end
 
   def show; end
 
+  def edit; end
+
   def destroy
     @question.destroy
-    redirect_to root
+    redirect_to test_path(@question.test)
   end
 
   def new
@@ -18,17 +20,26 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(question_params)
+    @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to tests_questions_path
+      redirect_to tests_path(@question.test)
     else
       render :new
     end
   end
 
+  def update
+    # @question = @test.questions.new(question_params)
+    if @question.update(question_params)
+      redirect_to test_path(@question.test)
+    else
+      render :edit
+    end
+  end
+
   private
   def question_params
-    params.require(:question).permit(:body, :test_id)
+    params.require(:question).permit(:body)
   end
 
   def find_test
@@ -38,9 +49,4 @@ class QuestionsController < ApplicationController
   def find_question
     @question = Question.find(params[:id])
   end
-
-  def rescue_with_question_not_found
-    render plain: 'Question not found'
-  end
-
 end
