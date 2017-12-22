@@ -3,7 +3,7 @@ class Test < ApplicationRecord
   belongs_to :category
   has_many :tests_users
   has_many :users, through: :tests_users
-  # belongs_to :author, class_name: 'User', foreign_key: 'user_id'
+  belongs_to :author, class_name: 'User', foreign_key: 'user_id'
 
   scope :for_level, -> (level) { where(level: level) }
   scope :easy_level, -> { for_level(0..1) }

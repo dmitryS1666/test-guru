@@ -2,10 +2,6 @@ class QuestionsController < ApplicationController
   before_action :find_test, only: [:index, :create, :new]
   before_action :find_question, except: [:index, :create, :new]
 
-  def index
-    redirect_to test_path(@test)
-  end
-
   def show; end
 
   def edit; end
@@ -29,7 +25,6 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    # @question = @test.questions.new(question_params)
     if @question.update(question_params)
       redirect_to test_path(@question.test)
     else

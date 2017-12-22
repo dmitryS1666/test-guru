@@ -3,7 +3,13 @@
 <p><strong>Title: </strong> <%= @test.title %> </p>
 <p><strong>Level: </strong> <%= test_level(@test.level) %></p>
 
-<p><%= render 'questions/question' %></p>
+<table>
+  <tr>
+    <th>Question</th>
+    <th colspan="3">Action</th>
+  </tr>
+  <%= render 'questions/question', collection: @test.questions %>
+</table>
 
 <%= link_to 'New test', new_test_path %> |
 <%= link_to 'Back', tests_path %> |
