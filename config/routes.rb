@@ -10,9 +10,10 @@ Rails.application.routes.draw do
     member do
       post :start
     end
+
   end
 
-  resources :test_passages, only: %i[show update] do
+  resources :test_passages, only: [:show, :update] do
     member do
       get :result
     end
