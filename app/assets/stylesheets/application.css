@@ -20,3 +20,10 @@
     width: 99%;
     text-align: center;
 }
+.success {
+    color: green;
+}
+
+.fail {
+    color: red;
+}
