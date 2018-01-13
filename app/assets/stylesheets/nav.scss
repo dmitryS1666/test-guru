@@ -1,0 +1,16 @@
+.nav{
+  height: 30px;
+  .index {
+    float: left;
+  }
+  .exit, .user, .sign_up, .login{
+    float: right;
+    right: 0;
+    padding-right: 5px;
+  }
+
+  .exit, .sign_up {
+    border-left: 1px solid #2E2F30;
+    padding-left: 5px;
+  }
+}
