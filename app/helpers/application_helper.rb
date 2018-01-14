@@ -10,8 +10,9 @@ module ApplicationHelper
   end
 
   def flash_alert
-    if flash[:alert]
-      content_tag :p, flash[:alert], class: 'flash alert'
+    flash.each do |type, message|
+      concat content_tag :p, flash[type], id: type, class: 'flash'
     end
+    return
   end
 end
