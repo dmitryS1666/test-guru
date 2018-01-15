@@ -1,10 +1,10 @@
 <div class="nav">
   <div class="index"><%= link_to 'TestGuru', root_path %></div>
-  <% if logged_in? %>
-    <div class="exit"><%= link_to 'Выход', logout_url %></div>
+  <% if user_signed_in? %>
+    <div class="exit"><%= link_to 'Выход', destroy_user_session_path, method: :delete %></div>
     <div class="user">Welcome, <b><%= current_user.email %></b> Guru</div>
-  <% else %>
-    <div class="sign_up"><%= link_to 'Регистрация', signup_url %></div>
-    <div class="login"><%= link_to 'Логин', login_url %></div>
+  <!--< else %>-->
+    <!--<div class="sign_up"><= link_to 'Регистрация', signup_url %></div>-->
+    <!--<div class="login"><= link_to 'Логин', login_url %></div>-->
   <% end %>
 </div>

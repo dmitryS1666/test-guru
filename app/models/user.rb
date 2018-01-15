@@ -1,15 +1,17 @@
-require 'digest/sha1'
-
 class User < ApplicationRecord
-  # include Auth
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable,
+         :confirmable
 
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :authored_tests, class_name: 'Test', foreign_key: 'user_id'
 
   validates :email, presence: true, uniqueness: true
-
-  has_secure_password
 
   def test_level(level)
     Test.joins(:tests_users).where('user_id = ? AND level = ?', self.id, level)
