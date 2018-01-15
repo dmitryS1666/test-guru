@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_resource_not_found
+
+  def after_sign_in_path_for(resource)
+    resource.is_a?(Admin) ? admin_tests_path : root_path
+  end
 
   private
 

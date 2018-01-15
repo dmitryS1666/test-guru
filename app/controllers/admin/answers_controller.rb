@@ -1,6 +1,5 @@
-class AnswersController < ApplicationController
+class Admin::AnswersController < Admin::BaseController
 
-  before_action :authenticate_user!
   before_action :find_question, only: [:new, :create]
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
 
