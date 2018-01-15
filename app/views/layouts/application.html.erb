@@ -9,7 +9,12 @@
   </head>
 
   <body>
+    <%= render 'shared/nav' %>
+
+    <%= flash_alert %>
+
     <%= yield %>
+
     <%= render 'shared/footer' %>
   </body>
 </html>
