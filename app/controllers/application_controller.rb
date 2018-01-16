@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_resource_not_found
 
-  def after_sign_in_path_for(resource)
-    resource.is_a?(Admin) ? admin_tests_path : root_path
+  def after_sign_in_path_for(user)
+    user.admin? ? admin_tests_path : root_path
   end
 
   private
