@@ -1,7 +1,7 @@
-<h2>Test <%= @test.id %></h2>
+<h2><%= t('.header', number: @test.id)%></h2>
 
-<p><strong>Title: </strong> <%= @test.title %> </p>
-<p><strong>Level: </strong> <%= test_level(@test.level) %></p>
+<p><strong><%= t('.title', title: @test.title) %></strong> </p>
+<p><strong><%= t('.level', level: @test.level) %></strong> </p>
 
 <table>
   <tr>
@@ -11,5 +11,5 @@
   <%= render partial: 'questions/question', collection: @test.questions %>
 </table>
 
-<%= link_to 'Back', admin_tests_path %> |
-<%= link_to 'Edit', edit_admin_test_path(@test) %>
+<%= link_to t('.index_link'), admin_tests_path %> |
+<%= link_to t('.edit_link'), edit_admin_test_path(@test) %>
