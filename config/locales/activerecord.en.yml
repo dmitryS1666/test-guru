@@ -17,7 +17,6 @@ en:
         remember_me: "Remember me"
         reset_password_token: "Reset password"
 
-
     errors:
       messages:
         blank: "can't be blank"
