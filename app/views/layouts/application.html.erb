@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TestGuru</title>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <title>TestGuru</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <%= render 'shared/nav' %>
 
-    <%= render 'shared/flash' %>
-
-    <%= yield %>
+    <div class="container">
+      <%= render 'shared/flash' %>
+      <%= yield %>
+    </div>
 
     <%= render 'shared/footer' %>
   </body>
