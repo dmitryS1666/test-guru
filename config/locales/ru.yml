@@ -27,6 +27,10 @@ ru:
   test_passages:
     result:
       header: "Тест %{title} успешно завершен!"
+    gist:
+      success: "<a href=%{link} target='_blank'> Ссылка на созданный Gist! </a>"
+      failure: "Во время сохранения gist произошла ошибка"
+
 
   admin:
     nav:
@@ -82,3 +86,8 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
+
+  services:
+    gist_params:
+      description: "Вопрос из теста %{title} приложение TestGuru"
+      gist_file: "тест-гуру-вопрос.txt"
