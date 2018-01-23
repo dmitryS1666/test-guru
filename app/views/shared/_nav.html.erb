@@ -1,10 +1,15 @@
-<div class="nav">
-  <div class="index"><%= link_to 'TestGuru', root_path %></div>
-  <% if user_signed_in? %>
-    <div class="exit"><%= link_to 'Выход', destroy_user_session_path, method: :delete %></div>
-    <div class="user">Welcome, <b><%= current_user.email %></b> Guru</div>
-  <% else %>
-    <div class="sign_up"><%= link_to 'Регистрация', new_user_registration_path %></div>
-    <div class="login"><%= link_to 'Логин', new_user_session_path %></div>
-  <% end %>
-</div>
+<nav class="navbar navbar-light bg-light">
+  <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
+
+  <span class="navbar-text">
+
+    <% if user_signed_in? %>
+      <%= render 'shared/login_nav' %>
+    <% else %>
+      <%= link_to 'Log in', new_session_path(resource_name) %> |
+      <%= link_to 'Sign up', new_registration_path(resource_name) %>
+    <% end %>
+
+  </span>
+
+</nav>
