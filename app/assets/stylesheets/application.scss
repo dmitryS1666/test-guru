@@ -1,1 +1,27 @@
 @import "bootstrap";
+@import "typography/icons";
+@import "global";
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.success {
+  color: green;
+}
+
+.fail {
+  color: red;
+}
+
+.new_user{
+  span{
+    float: right;
+    top: -30px;
+    right: 15px;
+    position: relative;
+  }
+}

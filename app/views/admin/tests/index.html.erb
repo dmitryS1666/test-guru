@@ -1,11 +1,16 @@
 <h1><%= t('.header') %>:</h1>
 
-<table>
+<p>
+  <td><%= link_to t('.new_link'), new_admin_test_path %></td>
+</p>
+
+<table class="table">
   <tr>
-    <td><%= link_to t('.new_link'), new_admin_test_path %></td>
-  </tr>
-  <tr>
-    <th><%= t('.title') %></th>
+    <th class="sort-by-title pointer mt-3">
+      <%= t('.title') %>
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
     <th><%= t('.level') %></th>
     <th><%= t('.questions') %></th>
     <th colspan="4"><%= t('.actions') %></th>
