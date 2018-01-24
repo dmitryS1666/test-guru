@@ -27,6 +27,9 @@ en:
   test_passages:
     result:
       header: "Test %{title} successfully passed"
+    gist:
+      success: "<a href=%{link} target='_blank'> Link to created Gist </a>"
+      failure: "Error occurred while saving gist"
 
   admin:
     nav:
@@ -75,3 +78,8 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+
+  services:
+    gist_params:
+      description: "A question about %{title} from TestGuru"
+      gist_file: "test-guru-question.txt"
