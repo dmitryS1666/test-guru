@@ -11,7 +11,7 @@
         <th>Question</th>
         <th colspan="4">Action</th>
       </tr>
-      <%= render partial: 'questions/question', collection: @test.questions %>
+      <%= render partial: 'admin/questions/question', collection: @test.questions %>
     </table>
 
     <%= link_to t('.index_link'), admin_tests_path %> |

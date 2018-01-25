@@ -40,8 +40,14 @@ gem 'rails-i18n', '~>5.0.0'
 gem 'faraday'
 
 # UI
-gem 'bootstrap', '~> 4.0.0.alpha6'
+# for bootstrap
+gem 'execjs'
+gem 'therubyracer'
+
+gem 'bootstrap', '~> 4.0.0.beta2'
 gem 'jquery-rails'
+gem 'octicons_helper'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -8,11 +8,11 @@
           <div class="form-group">
             <p>
               <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+              <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
             </p>
             <p>
               <%= f.label :password %><br />
-              <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+              <%= f.password_field :password, autocomplete: 'off', class: 'form-control' %>
             </p>
 
             <% if devise_mapping.rememberable? -%>
