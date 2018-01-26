@@ -1,7 +1,7 @@
 class Admin::TestsController < Admin::BaseController
 
-  before_action :set_tests, except: [:index, :update_inline]
-  before_action :set_test, except: [:index, :create, :new, :update_inline]
+  before_action :set_tests, only: [:index, :update_inline]
+  before_action :set_test, except: [:index, :new, :create]
 
   def index; end
 
@@ -50,12 +50,12 @@ class Admin::TestsController < Admin::BaseController
   end
 
   private
-  def set_tests
-    @tests = Test.all
-  end
-
   def test_params
     params.require(:test).permit(:title, :level, :category_id)
+  end
+
+  def set_tests
+    @tests = Test.all
   end
 
   def set_test

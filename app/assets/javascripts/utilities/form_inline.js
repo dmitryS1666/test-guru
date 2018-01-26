@@ -1,31 +1,32 @@
-document.addEventListener('turbolinks:load', function () {
-    var controls = document.querySelectorAll('.form-inline-link');
+document.addEventListener('turbolinks:load', function(){
 
-    if (controls.length) {
-        for (var i = 0; i < controls.length; i++) {
-            controls[i].addEventListener('click', formInlineLinkHandler)
-        }
+    $('.form-inline-link').on('click', formInlineLinkHandler);
+
+    var errors = document.querySelector('.resource-errors');
+    var form = document.querySelector('.form-inline');
+    if (errors && form) {
+        var resourceId = errors.dataset.resourceId;
+        formInlineHandler(resourceId)
     }
 });
 
 function formInlineLinkHandler(event) {
     event.preventDefault();
     var testId = this.dataset.testId;
-    formInlineHandler(testId);
-};
+    formInlineHandler(testId)
+}
 
 function formInlineHandler(testId) {
-    var link = document.quesrySelector('.form-inline-link[data-test-id="' + testId + '"]');
-    var testTitle = document.quesrySelector('.test-title[data-test-id="' + testId + '"]');
-    var formInline = document.quesrySelector('.form-inline[data-test-id="' + testId + '"]');
+    var link = document.querySelector('.form-inline-link[data-test-id="' + testId + '"]');
+    var $testTitle = $('.test-title[data-test-id="' + testId + '"]');
+    var $formInline = $('.form-inline[data-test-id="' + testId + '"]');
 
-    if(formInline.classList.contains('hide')) {
-        testTitle.classList.add('hide');
-        formInline.classList.remove('hide');
-        link.textContent = 'Cancel';
+    $formInline.toggle();
+    $testTitle.toggle();
+
+    if ($formInline.is(':visible')) {
+        link.textContent = 'Cancel'
     } else {
-        testTitle.classList.remove('hide');
-        formInline.classList.add('hide');
-        link.textContent = 'Edit';
+        link.textContent = 'Edit'
     }
 }
