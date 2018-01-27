@@ -63,6 +63,8 @@ ru:
         index_link: "Все Тесты"
         new_link: "Новый Тест"
         edit_link: "Редактировать"
+      form_inline:
+        submit: "OK"
 
       test:
         show_link: "Показать"

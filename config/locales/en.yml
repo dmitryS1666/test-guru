@@ -62,6 +62,8 @@ en:
         index_link: "All Tests"
         new_link: "New Test"
         edit_link: "Edit"
+      form_inline:
+        submit: "OK"
 
       test:
         show_link: "Show"

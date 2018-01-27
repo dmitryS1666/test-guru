@@ -3,9 +3,7 @@ class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test_passage, only: [:show, :update, :result, :gist]
 
-  def show
-    logger.info "@test_passage.current_question: #{@test_passage.current_question}"
-  end
+  def show; end
 
   def result; end
 

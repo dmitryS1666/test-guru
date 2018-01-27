@@ -23,4 +23,13 @@ module TestPassagesHelper
     content_tag(:b, "#{current_question}/#{count_questions}")
   end
 
+  def questions_amount(test_passage)
+    test_id = "test_#{test_passage.test.id}"
+    session[test_id.to_sym] ||= test_passage.test.questions.count
+  end
+
+  def current_question(test_passage)
+    test_passage.test.questions.index(test_passage.current_question) + 1
+  end
+
 end
