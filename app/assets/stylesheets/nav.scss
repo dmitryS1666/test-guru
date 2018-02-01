@@ -1,0 +1,41 @@
+.nav{
+  height: 30px;
+  .index {
+    float: left;
+  }
+  .exit, .user, .sign_up, .login{
+    float: right;
+    right: 0;
+    padding-right: 5px;
+  }
+
+  .exit, .sign_up {
+    border-left: 1px solid #2E2F30;
+    padding-left: 5px;
+  }
+
+  .nav-admin{
+    height: 35px;
+    padding: 15px;
+    line-height: 35px;
+    color: #ffffff;
+    background-color: #4293e6;
+    margin-bottom: 40px;
+
+    .title{
+      font-size: 140%;
+      font-weight: bold;
+    }
+
+    .user{
+      float: right;
+    }
+
+    .user-email{
+      text-decoration: underline;
+    }
+
+    a{color: #ffffff}
+  }
+
+}
