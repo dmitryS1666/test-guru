@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'octokit', '~> 4.0'
+
 # AUTH
 gem 'devise', '~> 4.0'
 
@@ -58,7 +60,6 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'faker'
-  gem 'octokit', '~> 4.0'
   gem 'dotenv-rails'
 end
 
