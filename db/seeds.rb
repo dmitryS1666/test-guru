@@ -7,10 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #
-# category_list = [
-#     ['Testing'], ['Development'],
-#     ['Design'], ['DevOps']
-# ]
+category_list = [
+    ['Git'], ['Backend'], [' Algorithms']
+]
 #
 # test_list = [
 #     ['HTML', 1, 2], ['JAVA', 2, 2],
@@ -27,9 +26,9 @@
 #
 #
 #
-# category_list.each do |category|
-#   Category.create( :title => category[0])
-# end
+category_list.each do |category|
+  Category.create( :title => category[0])
+end
 #
 # test_list.each do |test|
 #   Test.create(:title => test[0], :level => test[1], :category_id => test[2])
@@ -44,4 +43,4 @@
 # load 'db/seed_data/categories.rb'
 # load 'db/seed_data/tests.rb'
 # load 'db/seed_data/questions.rb'
-load 'db/seed_data/answers.rb'
+# load 'db/seed_data/answers.rb'
