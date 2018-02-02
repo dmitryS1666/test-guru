@@ -41,7 +41,7 @@
 
 
 # load 'db/seed_data/users.rb'
-load 'db/seed_data/categories.rb'
+# load 'db/seed_data/categories.rb'
 load 'db/seed_data/tests.rb'
 load 'db/seed_data/questions.rb'
 load 'db/seed_data/answers.rb'
