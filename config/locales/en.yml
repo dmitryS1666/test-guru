@@ -44,6 +44,7 @@ en:
         level: "Level"
         questions: "Questions"
         actions: "Actions"
+        timer: 'Passage time(in minutes)'
       create:
         success: "Test was successfully created"
       edit:

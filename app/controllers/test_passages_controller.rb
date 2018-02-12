@@ -41,4 +41,10 @@ class TestPassagesController < ApplicationController
     @test_passage = TestPassage.find(params[:id])
   end
 
+  def check_timer
+    if @test_passage.test.timer && @test_passage.stale?(session["passage_#{@test_passage.id}"])
+      redirect_to result_test_passage_path(@test_passage)
+    end
+  end
+
 end
