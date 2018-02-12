@@ -2,14 +2,11 @@
   <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
 
   <span class="navbar-text">
-
     <% if user_signed_in? %>
       <%= render 'shared/login_nav' %>
     <% else %>
       <%= link_to 'Log in', new_session_path(resource_name) %> |
       <%= link_to 'Sign up', new_registration_path(resource_name) %>
     <% end %>
-
   </span>
-
 </nav>

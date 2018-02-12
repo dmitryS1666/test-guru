@@ -5,7 +5,6 @@
 <% end %>
 
 <span class="navbar-text">
-
   <%= content_tag :span do
     concat 'Welcome, '
     concat content_tag :b, current_user.first_name
@@ -15,5 +14,4 @@
   <%= content_tag :p do
     concat link_to 'Logout', destroy_user_session_path, method: :delete
   end %>
-
 </span>

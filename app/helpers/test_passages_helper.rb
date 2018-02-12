@@ -32,4 +32,8 @@ module TestPassagesHelper
     test_passage.test.questions.index(test_passage.current_question) + 1
   end
 
+  def ratio(test_passage)
+    100 * (test_passage.correct_questions.to_f / test_passage.test.questions.count)
+  end
+
 end

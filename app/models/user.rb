@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :authored_tests, class_name: 'Test', foreign_key: 'user_id'
   has_many :gists
+  has_many :feedback_messages
+  has_and_belongs_to_many :badges
 
   validates :email, presence: true, uniqueness: true
 

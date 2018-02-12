@@ -17,6 +17,14 @@ class TestPassage < ApplicationRecord
     self.save!
   end
 
+  def success!(ratio, user)
+    update_column(:success, true) if ratio >= 85
+    logger.info 'self.success:'
+    logger.info self.success
+    logger.info user
+    BadgeDistribution.check_distribution(user) if self.success
+  end
+
   private
 
   def before_validation_set_first_question
