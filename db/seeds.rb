@@ -1,22 +1,23 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-#
 # category_list = [
-#     ['Testing'], ['Development'],
-#     ['Design'], ['DevOps']
+#     ['Git'], ['Backend'], [' Algorithms']
 # ]
-#
+# category_list.each do |category|
+#   Category.create( :title => category[0])
+# end
+
 # test_list = [
-#     ['HTML', 1, 2], ['JAVA', 2, 2],
-#     ['RUBY', 2, 2], ['PhotoShop', 1, 4]
+#     ['Git basics', 1, 1, 1],
+#     ['Git branching', 2, 1, 2],
+#     ['Ruby beginner', 0, 2, 3],
+#     ['Ruby OOP', 3, 2, 4],
+#     ['SQL in Rails', 4, 2, 5],
+#     ['Algo basics', 5, 3, 6],
+#     ['Searching', 6, 3, 7]
 # ]
-#
+# test_list.each do |test|
+#   Test.create(:title => test[0], :level => test[1], :category_id => test[2])
+# end
+
 # question_list = [
 #     ['Назовите тег параграфа ?', 1],
 #     ['Назовите арифметические операторы ?', 2],
@@ -24,16 +25,7 @@
 #     ['Назовите типы переменных ?', 3],
 #     ['Как изменить размер холста ?', 5]
 # ]
-#
-#
-#
-# category_list.each do |category|
-#   Category.create( :title => category[0])
-# end
-#
-# test_list.each do |test|
-#   Test.create(:title => test[0], :level => test[1], :category_id => test[2])
-# end
+
 #
 # question_list.each do |question|
 #   Question.create(:body => question[0], :test_id => question[1])
