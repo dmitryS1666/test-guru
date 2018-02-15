@@ -18,11 +18,8 @@ class TestPassage < ApplicationRecord
   end
 
   def success!(ratio, user)
-    update_column(:success, true) if ratio >= 85
-    logger.info 'self.success:'
-    logger.info self.success
-    logger.info user
-    BadgeDistribution.check_distribution(user) if self.success
+    update_column(:passed, true) if ratio >= 85
+    BadgeDistribution.identify_distribution(user) if self.passed
   end
 
   def has_expired?(end_time)

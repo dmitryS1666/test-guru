@@ -1,6 +1,6 @@
 class BadgeDistribution
   class << self
-    def check_distribution(user)
+    def identify_distribution(user)
       Badge.all.each do |badge|
         case badge.rule_name
           when 'Category' then category_rule(user, badge)
@@ -28,18 +28,18 @@ class BadgeDistribution
     end
 
     def passed_category_rule?(user, category)
-      user.tests.where('category_id=? AND test_passages.success=?', category.id, true)
+      user.tests.where(category_id: category.id, 'test_passages.passed': true)
           .pluck(:title).uniq.count == Test.for_category(category.title).count
     end
 
     def passed_level_rule?(user, level)
-      user.tests.where('level=? AND test_passages.success=?', level, true)
+      user.tests.where(level: level, 'test_passages.passed': true)
           .pluck(:title).uniq.count == Test.for_level(level).count
     end
 
     def passed_attempt_rule?(user, attempt)
       title = user.test_passages.last.test.title
-      user.tests.where('title=? AND test_passages.success=?', title, true).count == attempt
+      user.tests.where(title: title, 'test_passages.passed': true).count == attempt
     end
 
   end
