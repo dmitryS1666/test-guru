@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180215202449) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
     t.boolean "correct", default: false
@@ -126,4 +129,5 @@ ActiveRecord::Schema.define(version: 20180215202449) do
     t.index ["type"], name: "index_users_on_type"
   end
 
+  add_foreign_key "feedback_messages", "users"
 end
