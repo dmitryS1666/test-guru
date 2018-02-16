@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180130095554) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20180215202449) do
 
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
@@ -23,6 +20,23 @@ ActiveRecord::Schema.define(version: 20180130095554) do
     t.integer "question_id"
     t.index ["correct"], name: "index_answers_on_correct"
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name"
+    t.string "url_file"
+    t.string "rule_name"
+    t.string "rule_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_badges_on_name"
+  end
+
+  create_table "badges_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "badge_id", null: false
+    t.index ["badge_id", "user_id"], name: "index_badges_users_on_badge_id_and_user_id"
+    t.index ["user_id", "badge_id"], name: "index_badges_users_on_user_id_and_badge_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -66,8 +80,10 @@ ActiveRecord::Schema.define(version: 20180130095554) do
     t.integer "correct_questions", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "passed", default: false
     t.index ["created_at"], name: "index_test_passages_on_created_at"
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
+    t.index ["passed"], name: "index_test_passages_on_passed"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
   end
@@ -79,6 +95,7 @@ ActiveRecord::Schema.define(version: 20180130095554) do
     t.text "updated_at", null: false
     t.integer "category_id"
     t.integer "user_id"
+    t.integer "timer"
     t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
@@ -109,5 +126,4 @@ ActiveRecord::Schema.define(version: 20180130095554) do
     t.index ["type"], name: "index_users_on_type"
   end
 
-  add_foreign_key "feedback_messages", "users"
 end

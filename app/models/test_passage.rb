@@ -17,6 +17,15 @@ class TestPassage < ApplicationRecord
     self.save!
   end
 
+  def success!(ratio, user)
+    update_column(:passed, true) if ratio >= 85
+    BadgeDistribution.identify_distribution(user) if self.passed
+  end
+
+  def has_expired?(end_time)
+    Time.current >= end_time
+  end
+
   private
 
   def before_validation_set_first_question
