@@ -43,7 +43,7 @@ class TestPassagesController < ApplicationController
   end
 
   def check_timer
-    if @test_passage.test.timer && @test_passage.has_expired?(session["passage_#{@test_passage.id}"])
+    if @test_passage.test.timer && @test_passage.has_expired?(@test_passage.timer_finish)
       redirect_to result_test_passage_path(@test_passage)
     end
   end

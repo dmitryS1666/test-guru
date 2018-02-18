@@ -21,7 +21,7 @@ class Test < ApplicationRecord
     self.for_category(category)
   end
 
-  def set_questions_amount_to_session
+  def set_questions_amount_to_cache
     Rails.cache.write("test_#{self.id}", self.questions.count)
   end
 

@@ -1,5 +1,6 @@
 class TestPassage < ApplicationRecord
   belongs_to :user
+  # belongs_to :test, counter_cache: true
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
@@ -24,6 +25,10 @@ class TestPassage < ApplicationRecord
 
   def has_expired?(end_time)
     Time.current >= end_time
+  end
+
+  def set_timer_finish(timer_finish)
+    update_column(:timer_finish, timer_finish)
   end
 
   private
