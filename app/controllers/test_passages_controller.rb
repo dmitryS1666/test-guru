@@ -2,6 +2,7 @@ class TestPassagesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_test_passage, only: [:show, :update, :result, :gist]
+  before_action :check_timer, only: :update
 
   def show; end
 
@@ -42,7 +43,7 @@ class TestPassagesController < ApplicationController
   end
 
   def check_timer
-    if @test_passage.test.timer && @test_passage.stale?(session["passage_#{@test_passage.id}"])
+    if @test_passage.test.timer && @test_passage.has_expired?
       redirect_to result_test_passage_path(@test_passage)
     end
   end
