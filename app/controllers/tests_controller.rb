@@ -9,12 +9,13 @@ class TestsController < ApplicationController
 
   def start
     current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
+    test = current_user.test_passage(@test)
+    redirect_to test
 
     @test.set_questions_amount_to_cache
 
     if @test.timer
-      current_user.test_passage(@test).set_timer_finish(@test.timer.minutes.from_now)
+      test.set_timer_finish
     end
   end
 

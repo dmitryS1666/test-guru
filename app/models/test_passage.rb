@@ -23,12 +23,12 @@ class TestPassage < ApplicationRecord
     BadgeDistribution.identify_distribution(user) if self.passed
   end
 
-  def has_expired?(end_time)
-    Time.current >= end_time
+  def has_expired?
+    Time.current >= self.timer_finish
   end
 
-  def set_timer_finish(timer_finish)
-    update_column(:timer_finish, timer_finish)
+  def set_timer_finish
+    update_column(:timer_finish, test.timer.minutes.from_now)
   end
 
   private

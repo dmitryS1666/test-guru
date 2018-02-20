@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20180217133052) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "passed", default: false
-    t.string "timer_finish"
+    t.datetime "timer_finish"
     t.index ["created_at"], name: "index_test_passages_on_created_at"
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["passed"], name: "index_test_passages_on_passed"
